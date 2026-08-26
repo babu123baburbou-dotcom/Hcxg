@@ -1,0 +1,64 @@
+# FIX for ZENEX OTP Fetching
+# Add this to the infinite_otp_search function - REPLACE lines 1194-1231
+
+                if panel == "nexus":
+                    # ✅ ZENEX থেকে সব OTP fetch করছি
+                    zenex_otps = get_zenex_otps()
+                    
+                    if zenex_otps:
+                        # Global OTP pool থেকে আমাদের নাম্বারের সাথে match খুঁজছি
+                        for otp_item in zenex_otps:
+                            zenex_number = otp_item.get("number", "").replace("+", "")
+                            zenex_otp = otp_item.get("otp", "")
+                            nid = otp_item.get("nid", "")
+                            
+                            # নাম্বার match করছি
+                            matched_num = None
+                            for num in current_nums:
+                                clean_current = clean_number(num)
+                                clean_zenex = clean_number(zenex_number)
+                                
+                                # Exact match বা partial match
+                                if clean_zenex in clean_current or clean_current in clean_zenex:
+                                    matched_num = num
+                                    break
+                            
+                            # ✅ Match পেয়েছি এবং duplicate নয়
+                            if matched_num and nid not in global_used_otps.get(chat_id, set()):
+                                # Mark as used
+                                if chat_id not in global_used_otps:
+                                    global_used_otps[chat_id] = set()
+                                global_used_otps[chat_id].add(nid)
+                                
+                                # Balance update
+                                uid_str = str(chat_id)
+                                current_price = get_otp_price_from_firebase()
+                                new_bal = update_firebase_balance(uid_str, current_price)
+                                
+                                received_otps[chat_id] = zenex_otp
+                                service = user_service.get(chat_id, "Others")
+                                
+                                country_list2 = user_countries.get(chat_id, [])
+                                detected_c2 = country_list2[0] if country_list2 else None
+                                flag2 = get_flag(detected_c2) if detected_c2 else "🌍"
+                                
+                                # Display message
+                                text = (
+                                    f"╔━━━━━━━━━━━━━━━╗\n"
+                                    f"║{flag2}  {matched_num}    #{service.upper()}║\n"
+                                    f"╚━━━━━━━━━━━━━━━╝\n\n"
+                                    f"<blockquote>{zenex_otp}</blockquote>"
+                                )
+                                kb = otp_result_markup(zenex_otp, price=current_price)
+                                try:
+                                    bot.edit_message_text(text, chat_id, active_msg_id, reply_markup=kb, parse_mode="HTML")
+                                except Exception:
+                                    try:
+                                        bot.send_message(chat_id, text, reply_markup=kb, parse_mode="HTML")
+                                    except Exception:
+                                        pass
+                                try:
+                                    active_msg_id = bot.send_message(chat_id, "🔍 Next OTP SEARCHING (∞)...\n⏳ Waiting...").message_id
+                                except Exception:
+                                    pass
+                                break
