@@ -53,7 +53,7 @@ NEXUS_BASE_URL = ZENEX_BASE_URL
 NEXUS_HEADERS  = ZENEX_HEADERS
 
 ADMIN_ID     = os.getenv("ADMIN_ID")
-GROUP_URL    = os.getenv("GROUP_URL", "https://t.me/tem_withh")
+GROUP_URL    = os.getenv("GROUP_URL", "https://t.me/nayan_6800")
 FIREBASE_URL = os.getenv("FIREBASE_URL")
 
 # ✅ Render-এ Environment Variables সেট করা না থাকলে পরিষ্কার এরর দেখাবে
@@ -493,8 +493,8 @@ def is_admin(uid):
 
 def join_markup():
     return build_inline_keyboard([
-        [make_button("📢 Join Channel 1", url="https://t.me/range_channele", style="primary")],
-        [make_button("📢 Join Channel 2", url="https://t.me/tem_withh",     style="primary")],
+        [make_button("📢 Join Channel 1", url="https://t.me/method_680", style="primary")],
+        [make_button("📢 Join Channel 2", url="https://t.me/nayan_6800",     style="primary")],
         [make_button("✅ VERIFIED",        callback_data="verify_join",      style="success")],
     ])
 
@@ -1731,7 +1731,7 @@ def handle_text(message):
     elif txt == BTN_LIVE_TRAFFIC:
         traffic_intro = "📡 𝐋𝐢𝐯𝐞 𝐓𝐫𝐚𝐟𝐟𝐢𝐂 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 👇"
         traffic_kb = build_inline_keyboard([
-            [make_button("📊 LIVE TRAFFIC", url="https://t.me/tem_withh", style="primary")],
+            [make_button("📊 LIVE TRAFFIC", url="https://t.me/method_680", style="primary")],
             [make_button("🔵 GET NUMBER", callback_data="get_number_menu", style="success")],
             [make_button("❌ CANCEL", callback_data="back_to_main", style="danger")],
         ])
