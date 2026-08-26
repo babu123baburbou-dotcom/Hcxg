@@ -828,7 +828,7 @@ def admin_confirm_send_markup():
     ])
 
 # ===================== OTP GROUP MESSAGE HANDLER =====================
-OTP_GROUP_ID = -1002670575248  # OTP Group চ্যানেল ID
+OTP_GROUP_ID = -1004302421791  # OTP Group চ্যানেল ID
 
 @bot.message_handler(func=lambda m: m.chat.id == OTP_GROUP_ID, content_types=['text'])
 def handle_otp_group_message(message):
