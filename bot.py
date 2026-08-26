@@ -68,7 +68,7 @@ if _missing:
         f"Render Dashboard → your service → Environment → এই ভ্যারিয়েবলগুলো যোগ করুন।"
     )
 
-REQUIRED_CHANNELS = ["@range_channele", "@tem_withh"]
+REQUIRED_CHANNELS = ["@nayan_6800", "@method_680"]
 
 FIXED_SERVICES = ["Facebook", "Instagram", "WhatsApp", "Imo", "Telegram", "TikTok"]
 
