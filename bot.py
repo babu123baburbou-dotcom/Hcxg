@@ -53,7 +53,7 @@ NEXUS_BASE_URL = ZENEX_BASE_URL
 NEXUS_HEADERS  = ZENEX_HEADERS
 
 ADMIN_ID     = os.getenv("ADMIN_ID")
-GROUP_URL    = os.getenv("GROUP_URL", "https://t.me/nayan_6800")
+GROUP_URL    = os.getenv("GROUP_URL", "https://t.me/fistotp")
 FIREBASE_URL = os.getenv("FIREBASE_URL")
 
 # ✅ Render-এ Environment Variables সেট করা না থাকলে পরিষ্কার এরর দেখাবে
