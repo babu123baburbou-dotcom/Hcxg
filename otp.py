@@ -31,8 +31,8 @@ def keep_alive():
     t.start()
 
 # ===================== CONFIG =====================
-BOT_TOKEN         = ":AAH5tQLO71RCoCN1qtAr6xebGxFYiRT9z4A"
-CHANNEL_ID        = "-1002670575248"
+BOT_TOKEN         = "8565895947:AAFGYh5pVUjIzGa29AIjSBUGcLHh2iTDN0E"
+CHANNEL_ID        = "-1004302421791"
 
 # ===== STEX CONFIG =====
 API_KEY           = "MUBTR1MKUBO"
@@ -297,8 +297,8 @@ def build_message(masked_number, flag, short_code, service, lang):
         f"  {masked_number}  #{lang}"
     )
 
-RANGE_CHANNEL_URL = "https://t.me/range_channele"
-PANEL_BOT_URL     = "https://t.me/shuvo_number_bot"
+RANGE_CHANNEL_URL = "https://t.me/nayan_6800"
+PANEL_BOT_URL     = "https://t.me/firstotp680_bot"
 
 # ===================== SEND WITH STYLED BUTTONS =====================
 def send_with_styled_buttons(text, otp_code, full_message, range_clean):
