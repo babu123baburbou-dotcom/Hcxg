@@ -1,6 +1,0 @@
-pyTelegramBotAPI
-requests
-pycountry
-Flask
-firebase-admin
-phonenumbers
