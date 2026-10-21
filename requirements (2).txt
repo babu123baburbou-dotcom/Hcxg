@@ -1,0 +1,6 @@
+requests
+beautifulsoup4
+pyotp
+html5lib
+flask
+firebase-admin
